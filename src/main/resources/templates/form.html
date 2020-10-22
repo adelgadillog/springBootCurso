@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Curso spring boot</title>
+    <link rel = "stylesheet" th:href="@{/css/bootstrap.css}" />
+    <script th:href ="@{/js/jquery-3.5.1.min.js}">  </script>
+    <script th:href ="@{/js/bootstrap.js}" >  </script>
+
+  </head>
+  <body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+	<!-- header -->
+    <div class="jumbotron">
+      <h1 th:text="${post.title}" class="display-4"></h1>
+      <p th:text ="${post.description} "class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p th:text ="${post.date}">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+<!--FORM-->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <h1>NEW POST</h1>
+      </div>
+      <div class="col-12">
+        <form  th:action="@{/home/addNewPost}" method="post" th:object="${post}">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id">ID</label>
+              <input th:field="*{id}" th:value="*{id}" type="number" class="form-control" id="id" placeholder="Identificador">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id">DESCRIPTION</label>
+              <input th:field="*{description}" th:value="*{description}" type="text" class="form-control" id="id" placeholder="Descripcion">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id">IMAGE</label>
+              <input th:field="*{urlImg}" th:value="*{urlImg}" type="text" class="form-control" id="id" placeholder="Imagen">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id">TITLE</label>
+              <input th:field="*{title}" th:value="*{title}" type="text" class="form-control" id="id" placeholder="Title">
+            </div>
+            <button type="submit" class="btn btn-primary"name="button"> Agregar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
